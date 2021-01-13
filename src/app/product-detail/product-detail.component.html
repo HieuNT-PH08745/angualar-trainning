@@ -1,0 +1,27 @@
+<form [formGroup]="productForm" class="form-group">
+  <div style="color: #007bff; text-align: center">
+    <h1>Product Detail</h1>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input type="text" class="form-control" formControlName="name">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Price</label>
+    <input type="number" class="form-control" formControlName="price">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Category</label>
+    <input type="text" class="form-control" formControlName="category">
+  </div>
+  <table border="0" style="width: 100%">
+    <tr>
+      <td style="float: right">
+        <button type="submit" class="btn btn-primary" (click)="updateProduct()">Submit</button>
+      </td>
+      <td>
+        <button class="btn btn-secondary" (click)="close()">Cancel</button>
+      </td>
+    </tr>
+  </table>
+</form>

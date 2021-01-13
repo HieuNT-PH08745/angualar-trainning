@@ -1,0 +1,79 @@
+<div>
+  <form [formGroup]="searchForm">
+    <table border="0" style="width: 100%">
+      <tr>
+        <td style="padding: 15px">
+          <label>Name:</label>
+          <input type="text" class="form-control" formControlName="name">
+        </td>
+        <td style="padding: 15px">
+          <label>Price:</label>
+          <input type="number" class="form-control" formControlName="price">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="padding: 15px">
+          <label>Category:</label>
+          <input type="text" class="form-control" formControlName="category">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="padding: 15px">
+          <div class="text-center">
+            <button class="btn btn-primary" type="submit" (click)="search()">Search</button>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </form>
+<!--  <table border="0" style="width: 100%">-->
+<!--    <tr>-->
+<!--      <td style="float: right">-->
+<!--        <form [formGroup]="searchForm">-->
+<!--          <table border="0">-->
+<!--            <tr>-->
+<!--              <td>-->
+<!--                <input class="form-control" type="text" formControlName="name" autocomplete="on"-->
+<!--                       placeholder="Search by name.....">-->
+<!--              </td>-->
+<!--              <td>-->
+<!--                <button class="btn btn-primary" type="submit" (click)="search()">Search</button>-->
+<!--              </td>-->
+<!--            </tr>-->
+<!--          </table>-->
+<!--        </form>-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--  </table>-->
+  <br/><br/>
+</div>
+
+<table class="table">
+  <thead style="background-color: #0069d9; color: #fff">
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Price</th>
+    <th scope="col">Category</th>
+    <th scope="col"></th>
+    <th scope="col">
+      <button class="btn btn-primary" (click)="addProduct()">
+        <i class="fas fa-plus"></i>
+      </button>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr
+    *ngFor="let product of products">
+    <td>{{product.name}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.category}}</td>
+    <td style="width: 10%">
+      <button class="btn btn-primary" (click)="editProduct(product)"><i class="fas fa-pencil-alt"></i></button>
+    </td>
+    <td style="width: 10%">
+      <button class="btn btn-danger" (click)="removeProduct(product.id)"><i class="fas fa-trash"></i></button>
+    </td>
+  </tr>
+  </tbody>
+</table>
